@@ -30,29 +30,47 @@ public Academic(String studentname, int studentId, double score, double attendan
     return AttendanceRate;
   }
 
-  private char calclulateLetterGrade(double score) {
+  private char calclulateLetterGrade(double score, char grade) {
     if (score <= 100 and score >= 90) {
-      return 'A';
+      return grade = 'A';
     }
     else if (score >= 80) {
-      return 'B';
+      return grade = 'B';
     }
     else if (score >= 70) {
-      return 'C';
+      return grade = 'C';
     }
     else if (score >= 60) {
-      return 'D';
+      return grade = 'D';
     }
     else if (score < 60 and score >= 0) {
-      return F;
+      return grade = F;
     }
     else {
       return "Invalid score";
     } 
   }
 
-  public String getAcademicStatus(double score, double attendanceRate) {
-    
+  public String getAcademicStatus(char grade, double attendanceRate) {
+    if (grade == F) {
+      System.out.println("You have failed. Try harder next");
+    }
+    else if (attendanceRate < 50) {
+      System.out.println("You have falid due to low attendance");
+    }
+    else if (grade == A || grade == B && attendanceRate >= 75) {
+      System.out.println("Excellent Standing);
+    }
+    else:
+      System.out.println("Pass");
+  }
+
+  public void improveScore(double extraMarks) {
+    if (extraMarks >= 0 && ((extraMarks + score) <= 100)) {
+       return score += extraMarks;
+    System.out.println(score);
+    }
+    return;
   }
   
 
